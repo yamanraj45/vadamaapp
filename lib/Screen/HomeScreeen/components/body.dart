@@ -3,6 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget homeBody(context) {
+  List _name = [
+    'Thermometer',
+    'Oxy-meter',
+    'Syringe Pump',
+    'Oxygen Concentrater'
+  ];
   return SafeArea(
     child: SingleChildScrollView(
       child: Column(
@@ -87,10 +93,10 @@ Widget homeBody(context) {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        promoCard('assets/images/one.jpg', context),
-                        promoCard('assets/images/two.jpg', context),
-                        promoCard('assets/images/three.jpg', context),
-                        promoCard('assets/images/four.jpg', context),
+                        promoCard('assets/images/one.jpg', _name[0], context),
+                        promoCard('assets/images/two.jpg', _name[1], context),
+                        promoCard('assets/images/three.jpg', _name[2], context),
+                        promoCard('assets/images/four.jpg', _name[3], context),
                       ],
                     ),
                   ),
@@ -141,7 +147,7 @@ Widget homeBody(context) {
   );
 }
 
-Widget promoCard(image, context) {
+Widget promoCard(image, title, context) {
   return AspectRatio(
     aspectRatio: 2.62 / 3,
     child: InkWell(
@@ -178,14 +184,14 @@ Widget promoCard(image, context) {
                       ])),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              'Thermometer',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                  color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
             ),
           )
         ],

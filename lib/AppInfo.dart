@@ -1,4 +1,4 @@
 class AppInfo {
-  String appName = 'Bhadama';
+  String appName = 'Vadama';
   String logoPath = 'assets/images/logo.png';
 }

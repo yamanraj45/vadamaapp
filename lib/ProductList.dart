@@ -1,3 +1,4 @@
+import 'package:bhadama/Screen/HomeScreeen/HomeScreen.dart';
 import 'package:bhadama/colors.dart';
 import 'package:bhadama/style.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,10 @@ class DeatilScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
       body: Stack(
         children: [
           Positioned(
@@ -59,14 +64,14 @@ class DeatilScreen extends StatelessWidget {
                       const Spacing(),
                       const Spacing(),
                       Text(
-                        'Wheel Chair of two monts for rent. Which is new in condition and is in perfect condition',
+                        'A machine that help in generation of oxygen. It is used by people who have difficulty in breathing and have low oxygen volumne in the blood',
                       ),
                       const Spacing(),
                       Center(
                           child: ElevatedButton(
                               style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      AppColor.primary),
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.black),
                                   shape: MaterialStateProperty.all(
                                       RoundedRectangleBorder(
                                           borderRadius:
@@ -77,15 +82,74 @@ class DeatilScreen extends StatelessWidget {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return Container(
-                                      child: Row(
-                                        children: [Text('asdsd')],
-                                      ),
+                                    return AlertDialog(
+                                      title: Text('Payment Method'),
+                                      content: Container(
+                                          child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              print('Hello');
+                                              Navigator.of(context).pop();
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text('Rent Booking'),
+                                                ),
+                                              );
+                                              Navigator.pushReplacement(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        HomeScreen(),
+                                                  ));
+                                            },
+                                            child: Container(
+                                                height: 100,
+                                                width: 100,
+                                                child: Card(
+                                                  child: Column(
+                                                    children: [
+                                                      Icon(Icons.money),
+                                                      Text(
+                                                        'Online \nPayment',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                          ),
+                                          InkWell(
+                                            child: Container(
+                                                height: 100,
+                                                width: 100,
+                                                child: Card(
+                                                  child: Column(
+                                                    children: [
+                                                      Icon(Icons.money),
+                                                      Text(
+                                                        'Cash',
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                          )
+                                        ],
+                                      )),
                                     );
                                   },
                                 );
                               },
-                              child: Text('Add To Cart',
+                              child: Text('Rent ',
                                   style: AppStyle.h3
                                       .copyWith(color: Colors.white))))
                     ],
@@ -211,7 +275,7 @@ class ProductNameAndPrice extends StatelessWidget {
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontSize: 20,
           ),
         ),
         Text(

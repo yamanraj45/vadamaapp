@@ -20,7 +20,9 @@ class _InputTextState extends State<InputText> {
     return TextField(
       controller: widget.controller,
       decoration: InputDecoration(
-          border: InputBorder.none,
+          border: new OutlineInputBorder(
+            borderSide: new BorderSide(color: Colors.teal),
+          ),
           hintText: widget.label,
           hintStyle: TextStyle(color: Colors.grey[400])),
     );

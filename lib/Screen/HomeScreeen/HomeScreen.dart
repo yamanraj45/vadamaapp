@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List _pages = [homeBody(context), ProfileUI()];
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.black,
         onPressed: () {
           Navigator.push(
             context,
@@ -26,7 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -47,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               CircleAvatar(
                 backgroundColor:
-                    currentIndex == 0 ? Colors.red : Colors.transparent,
+                    currentIndex == 0 ? Colors.black : Colors.transparent,
                 child: IconButton(
                     onPressed: () {
                       setState(() {
@@ -55,13 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                     },
                     icon: Icon(
-                      color: Colors.black,
+                      color: currentIndex != 0 ? Colors.black : Colors.white,
                       Icons.home_outlined,
                     )),
               ),
               CircleAvatar(
                 backgroundColor:
-                    currentIndex == 1 ? Colors.red : Colors.transparent,
+                    currentIndex != 0 ? Colors.black : Colors.transparent,
                 child: IconButton(
                     onPressed: () {
                       setState(() {
@@ -70,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     icon: Icon(
                       Icons.person_outline_rounded,
-                      color: Colors.black,
+                      color: currentIndex == 0 ? Colors.black : Colors.white,
                     )),
               )
             ],

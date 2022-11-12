@@ -10,6 +10,24 @@ class ProducsttssList extends StatefulWidget {
 }
 
 class _ProducsttssListState extends State<ProducsttssList> {
+  List _products = [
+    {
+      'name': 'Pressure CHeck',
+      'path': 'assets/images/one.jpg',
+    },
+    {
+      'name': 'Oxymeter',
+      'path': 'assets/images/two.jpg',
+    },
+    {
+      'name': 'Syringe pump',
+      'path': 'assets/images/three.jpg',
+    },
+    {
+      'name': 'Oxygen Compressor',
+      'path': 'assets/images/four.jpg',
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +51,7 @@ class _ProducsttssListState extends State<ProducsttssList> {
                           mainAxisSpacing: 10,
                           crossAxisSpacing: 20,
                           childAspectRatio: 0.73),
-                      itemCount: 4,
+                      itemCount: _products.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
@@ -71,7 +89,7 @@ class _ProducsttssListState extends State<ProducsttssList> {
                                           ),
                                         ),
                                         Image.asset(
-                                          'assets/images/three.jpg',
+                                          _products[index]['path'],
                                           height: 160,
                                         )
                                       ],

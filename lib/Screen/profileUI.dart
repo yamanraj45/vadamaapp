@@ -12,11 +12,14 @@ class _ProfileUIState extends State<ProfileUI> with TickerProviderStateMixin {
   int selectedIndex = 0;
 
   var listImage = [
-    "https://media.gettyimages.com/id/673304906/photo/the-right-support-will-do-you-good.jpg?s=612x612&w=gi&k=20&c=uuQE4slAPGACDRyuGNYJu2L9kucbtbvV9iaoExjLH28=",
-    "https://media.gettyimages.com/id/673304906/photo/the-right-support-will-do-you-good.jpg?s=612x612&w=gi&k=20&c=uuQE4slAPGACDRyuGNYJu2L9kucbtbvV9iaoExjLH28=",
-    "https://media.gettyimages.com/id/673304906/photo/the-right-support-will-do-you-good.jpg?s=612x612&w=gi&k=20&c=uuQE4slAPGACDRyuGNYJu2L9kucbtbvV9iaoExjLH28=",
-    "https://media.gettyimages.com/id/673304906/photo/the-right-support-will-do-you-good.jpg?s=612x612&w=gi&k=20&c=uuQE4slAPGACDRyuGNYJu2L9kucbtbvV9iaoExjLH28=",
-    "https://media.gettyimages.com/id/673304906/photo/the-right-support-will-do-you-good.jpg?s=612x612&w=gi&k=20&c=uuQE4slAPGACDRyuGNYJu2L9kucbtbvV9iaoExjLH28=",
+    'assets/images/one.jpg',
+    'assets/images/two.jpg',
+    'assets/images/three.jpg',
+    'assets/images/four.jpg',
+    'assets/images/one.jpg',
+    'assets/images/two.jpg',
+    'assets/images/three.jpg',
+    'assets/images/four.jpg',
   ];
 
   @override
@@ -41,7 +44,7 @@ class _ProfileUIState extends State<ProfileUI> with TickerProviderStateMixin {
           ),
           SizedBox(height: 20.0),
           Text(
-            "@Wilson_je",
+            "@ghimire_sau",
             style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 20.0,
@@ -123,13 +126,14 @@ class _ProfileUIState extends State<ProfileUI> with TickerProviderStateMixin {
           //     ),
           //   ),
           // ),
+          Divider(height: 4),
           Expanded(
             child: TabBarView(
               controller: tabController,
               children: [
                 GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 250.0, crossAxisCount: 3),
+                      mainAxisExtent: 150, crossAxisCount: 3),
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -138,8 +142,8 @@ class _ProfileUIState extends State<ProfileUI> with TickerProviderStateMixin {
                           color: Colors.black,
                           borderRadius: BorderRadius.circular(20.0),
                           image: DecorationImage(
-                            image: NetworkImage(listImage[index]),
-                            fit: BoxFit.cover,
+                            image: AssetImage(listImage[index]),
+                            fit: BoxFit.fill,
                           ),
                         ),
                       ),
